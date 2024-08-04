@@ -59,6 +59,7 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
         self._healthy_reward = healthy_reward
         self._terminate_when_unhealthy = terminate_when_unhealthy
         self._healthy_z_range = healthy_z_range
+        self.previous_distance_traveled = 0.0 #초기 이동거리 설정
 
         self._reset_noise_scale = reset_noise_scale
 
@@ -145,15 +146,13 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
 
 
         # 최종 보상 계산
-        rewards = distance_reward + forward_reward + distance_reward
+        rewards = distance_reward + forward_reward + distance_reward +distance_increase_reward
 
         observation = self._get_obs()
         reward = rewards - ctrl_cost
         terminated = self.terminated
         info = {
             "reward_distance": distance_reward,
-            # "reward_speed": speed_reward,
-            # "reward_alive": healthy_reward,
             "forward":forward_reward,
             "distance":distance_reward,
             "x_position": xy_position_after[0],
@@ -162,7 +161,6 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
             "x_velocity": x_velocity,
             "y_velocity": y_velocity,
             "distance_traveled": distance_traveled,
-            # "speed": speed,
         }
 
         if self.render_mode == "human":
