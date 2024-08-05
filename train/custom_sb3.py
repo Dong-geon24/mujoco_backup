@@ -8,10 +8,8 @@ import argparse
 # Create directories to hold models and logs
 model_dir = "models"
 log_dir = "logs"
-best_model_dir = "best_model"
 os.makedirs(model_dir, exist_ok=True)
 os.makedirs(log_dir, exist_ok=True)
-os.makedirs(best_model_dir, exist_ok=True)
 
 def train():
     model = sb3_class('MlpPolicy', env, verbose=1, device='cuda', tensorboard_log=log_dir)
@@ -27,7 +25,7 @@ def train():
     eval_callback = EvalCallback(
         env, 
         eval_freq=10000, # how often to perform evaluation i.e. every 10000 timesteps.
-        callback_on_new_best=callback_on_best, 
+        # callback_on_new_best=callback_on_best, 
         callback_after_eval=stop_train_callback, 
         verbose=1, 
         best_model_save_path=os.path.join(model_dir, f"{args.gymenv}_{args.sb3_algo}"),
@@ -38,10 +36,10 @@ def train():
     tb_log_name: create log files with the name [gym env name]_[sb3 algorithm] i.e. Pendulum_v1_SAC
     callback: pass in reference to a callback fuction above
     """
-    model.learn(total_timesteps=int(1e10), tb_log_name=f"{model_dir}/{args.gymenv}_{args.sb3_algo}", callback=eval_callback)
+    model.learn(total_timesteps=int(1e10), tb_log_name=f"{args.gymenv}_{args.sb3_algo}", callback=eval_callback)
 
 def test():        
-    model = sb3_class.load(os.path.join(best_model_dir, f"{args.model_path}", "best_model"), env=env)
+    model = sb3_class.load(os.path.join(model_dir, f"{args.gymenv}_{args.sb3_algo}", "best_model"), env=env)
 
     obs = env.reset()[0]   
     while True:
@@ -58,8 +56,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train or test model.')
     parser.add_argument('gymenv', help='Gymnasium environment i.e. Humanoid-v4')
     parser.add_argument('sb3_algo', help='StableBaseline3 RL algorithm i.e. A2C, DDPG, DQN, PPO, SAC, TD3')    
+    parser.add_argument('experiment_name', help='name of the experiment')
     parser.add_argument('--test', help='Test mode', action='store_true')
-    parser.add_argument('--model_path', help='Path to the model for testing in best_model directory', default="best_model")
     args = parser.parse_args()
 
     # Dynamic way to import algorithm. For example, passing in DQN is equivalent to hardcoding:

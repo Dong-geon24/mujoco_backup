@@ -25,7 +25,7 @@ def train():
     eval_callback = EvalCallback(
         env, 
         eval_freq=10000, # how often to perform evaluation i.e. every 10000 timesteps.
-        callback_on_new_best=callback_on_best, 
+        # callback_on_new_best=callback_on_best, 
         callback_after_eval=stop_train_callback, 
         verbose=1, 
         best_model_save_path=os.path.join(model_dir, f"{args.gymenv}_{args.sb3_algo}"),
