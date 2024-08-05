@@ -24,7 +24,7 @@ def train():
         # callback_on_new_best=callback_on_best, 
         callback_after_eval=stop_train_callback, 
         verbose=1, 
-        best_model_save_path=os.path.join(model_dir, "best_model.zip"),
+        best_model_save_path=os.path.join(model_dir, "best_model"),
     )
     
     """
@@ -35,7 +35,11 @@ def train():
     model.learn(total_timesteps=int(1e10), tb_log_name=f"{args.gymenv}_{args.sb3_algo}_{args.experiment_name}", callback=eval_callback)
 
 def test():        
-    model = sb3_class.load(os.path.join(model_dir, f"{args.gymenv}_{args.sb3_algo}", "best_model"), env=env)
+    # model = sb3_class.load(os.path.join('models', f"{args.gymenv}_{args.experiment_name}", "best_model.zip"), env=env)
+
+    model_path = os.path.join("models", f"{args.gymenv}_{args.sb3_algo}_{args.experiment_name}", "best_model.zip")
+    model = sb3_class.load(model_path, env=env)  # Load the best model from the correct path
+
 
     obs = env.reset()[0]   
     while True:
@@ -57,8 +61,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # Create directories to hold models and logs
-    model_dir = os.path.join("models", f"{args.gymenv}_{args.experiment_name}")
-    log_dir = os.path.join("logs", f"{args.gymenv}_{args.experiment_name}") 
+    model_dir = os.path.join("models", f"{args.gymenv}_{args.sb3_algo}_{args.experiment_name}")
+    log_dir = os.path.join("logs", f"{args.gymenv}_{args.sb3_algo}_{args.experiment_name}") 
     os.makedirs(model_dir, exist_ok=True)
     os.makedirs(log_dir, exist_ok=True)
 
