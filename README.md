@@ -3,9 +3,9 @@
 #### train: learning에서 해당하는 학습을 가져와 진행
     #위치: /home/arclab/.mujoco273/mujoco-2.3.7/gym_solutions/
     #학습수행
-    python sb3.py [학습모델_이름] [알고리즘] -t 
+    python sb3_custom.py [학습모델_이름] [알고리즘] [실험이름]
     #학습 결과 시뮬
-    python sb3.py [학습모델_이름] [알고리즘] -s [학습데이터_경로}
+    python sb3_custom.py [학습모델_이름] [알고리즘] [실험이름] --test
     #텐서보드 - 학습 실시간 확인
     tensorboard --logdir logs
 
