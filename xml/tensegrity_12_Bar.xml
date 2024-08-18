@@ -8,8 +8,8 @@
 	<default>
 		<joint armature="1" damping="1"/>
     <geom conaffinity="1" condim="4" contype="1" material="geom" margin="0.001" rgba="0. 0.5 0.99 1"/>
-		<site type="sphere" size="0.005"/>
-    <tendon limited="true" range="0.2 0.3" width="0.005" rgba="0.99 0. 0. 1"  stiffness="1" damping="0.5"/>
+		<site type="sphere" size="0.01"/>
+    <tendon limited="true" range="0.1 0.15" width="0.005" rgba="0.99 0. 0. 1"  stiffness="1" damping="0.5"/>
 		<general gear="10000" biastype="affine" biasprm="0 0 0" dyntype="filter" dynprm="5 0 0" gainprm="1 0 0" ctrllimited="true" ctrlrange="-2. 0." />
 	</default>
 
@@ -29,67 +29,67 @@
 
         <!-- ===== RODS =====-->
         <body name="rod1_2" pos="0 0 0">
-      <geom name="r12"  fromto="0.075 0.075 0.50 0.075 0.075 0.05"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r12"  fromto="0.095 0.095 0.50 0.095 0.095 0.05"  density="1000" type="cylinder" size="0.01" />
       <joint name="move1_2" type="free"/>
 			<body name="rod1_2_child1">
-				<geom name="r12_child1" pos="0.075 0.075 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s1" pos="0.075 0.075 0.50"/>
-				<joint type="ball" pos="0.075 0.075 0.50"/>
+				<geom name="r12_child1" pos="0.095 0.095 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s1" pos="0.095 0.095 0.50"/>
+				<joint type="ball" pos="0.095 0.075 0.50"/>
 			</body>
 			<body name="rod1_2_child2">
-				<geom name="r12_child2" pos="0.075 0.075 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s2" pos="0.075 0.075 0.05" />
-				<joint type="ball" pos="0.075 0.075 0.05"/>
+				<geom name="r12_child2" pos="0.095 0.095 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s2" pos="0.095 0.095 0.05" />
+				<joint type="ball" pos="0.095 0.095 0.05"/>
 			</body>
 		</body>
 
         <body name="rod3_4" pos="0 0 0">
-      <geom name="r34"  fromto="-0.075 0.075 0.50 -0.075 0.075 0.05"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r34"  fromto="-0.055 0.095 0.50 -0.055 0.095 0.05"  density="1000" type="cylinder" size="0.01" />
       <joint name="move3_4" type="free"/>
 			<body name="rod3_4_child1">
-				<geom name="r34_child1" pos="-0.075 0.075 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s3" pos="-0.075 0.075 0.50"/>
-				<joint type="ball" pos="-0.075 0.075 0.50"/>
+				<geom name="r34_child1" pos="-0.055 0.095 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s3" pos="-0.055 0.095 0.50"/>
+				<joint type="ball" pos="-0.055 0.095 0.50"/>
 			</body>
 			<body name="rod3_4_child2">
-				<geom name="r34_child2" pos="-0.075 0.075 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s4" pos="-0.075 0.075 0.05" />
-				<joint type="ball" pos="-0.075 0.075 0.05"/>
+				<geom name="r34_child2" pos="-0.055 0.095 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s4" pos="-0.055 0.095 0.05" />
+				<joint type="ball" pos="-0.055 0.095 0.05"/>
 			</body>
 		</body>
 
         <body name="rod5_6" pos="0 0 0">
-      <geom name="r56"  fromto="-0.075 -0.075 0.50 -0.075 -0.075 0.05"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r56"  fromto="-0.055 -0.055 0.50 -0.055 -0.055 0.05"  density="1000" type="cylinder" size="0.01" />
       <joint name="move5_6" type="free"/>
 			<body name="rod5_6_child1">
-				<geom name="r56_child1" pos="-0.075 -0.075 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s5" pos="-0.075 -0.075 0.50"/>
-				<joint type="ball" pos="-0.075 -0.075 0.50"/>
+				<geom name="r56_child1" pos="-0.055 -0.055 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s5" pos="-0.055 -0.055 0.50"/>
+				<joint type="ball" pos="-0.055 -0.055 0.50"/>
 			</body>
 			<body name="rod5_6_child2">
-				<geom name="r56_child2" pos="-0.075 -0.075 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s6" pos="-0.075 -0.075 0.05" />
-				<joint type="ball" pos="-0.075 -0.075 0.05"/>
+				<geom name="r56_child2" pos="-0.055 -0.055 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s6" pos="-0.055 -0.055 0.05" />
+				<joint type="ball" pos="-0.055 -0.055 0.05"/>
 			</body>
 		</body>
     
         <body name="rod7_8" pos="0 0 0">
-      <geom name="r78"  fromto="0.075 -0.075 0.50 0.075 -0.075 0.05"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r78"  fromto="0.095 -0.055 0.50 0.095 -0.055 0.05"  density="1000" type="cylinder" size="0.01" />
       <joint name="move7_8" type="free"/>
 			<body name="rod7_8_child1">
-				<geom name="r78_child1" pos="0.075 -0.075 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s7" pos="0.075 -0.075 0.50"/>
-				<joint type="ball" pos="0.075 -0.075 0.50"/>
+				<geom name="r78_child1" pos="0.095 -0.055 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s7" pos="0.095 -0.055 0.50"/>
+				<joint type="ball" pos="0.095 -0.055 0.50"/>
 			</body>
 			<body name="rod7_8_child2">
-				<geom name="r78_child2" pos="0.075 -0.075 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s8" pos="0.075 -0.075 0.05" />
-				<joint type="ball" pos="0.075 -0.075 0.05"/>
+				<geom name="r78_child2" pos="0.095 -0.055 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s8" pos="0.095 -0.055 0.05" />
+				<joint type="ball" pos="0.095 -0.055 0.05"/>
 			</body>
 		</body>
 
         <body name="rod9_10" pos="0 0 0">
-      <geom name="r910"  fromto="0.075 0.225 0.35 0.075 -0.225 0.35"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r910"  fromto="0.075 0.225 0.35 0.075 -0.225 0.35"  density="1000" type="cylinder" size="0.01" />
       <joint name="move9_10" type="free"/>
 			<body name="rod9_10_child1">
 				<geom name="r910_child1" pos="0.075 0.225 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
@@ -104,7 +104,7 @@
 		</body>
 
         <body name="rod11_12" pos="0 0 0">
-      <geom name="r1112"  fromto="0.075 0.225 0.20 0.075 -0.225 0.20"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r1112"  fromto="0.075 0.225 0.20 0.075 -0.225 0.20"  density="1000" type="cylinder" size="0.01" />
       <joint name="move11_12" type="free"/>
 			<body name="rod11_12_child1">
 				<geom name="r1112_child1" pos="0.075 0.225 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
@@ -119,7 +119,7 @@
 		</body>
     
         <body name="rod13_14" pos="0 0 0">
-      <geom name="r1314"  fromto="-0.075 0.225 0.20 -0.075 -0.225 0.20"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r1314"  fromto="-0.075 0.225 0.20 -0.075 -0.225 0.20"  density="1000" type="cylinder" size="0.01" />
       <joint name="move13_14" type="free"/>
 			<body name="rod13_14_child1">
 				<geom name="r1314_child1" pos="-0.075 0.225 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
@@ -134,7 +134,7 @@
 		</body>
    
         <body name="rod15_16" pos="0 0 0">
-      <geom name="r1516"  fromto="-0.075 0.225 0.35 -0.075 -0.225 0.35"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r1516"  fromto="-0.075 0.225 0.35 -0.075 -0.225 0.35"  density="1000" type="cylinder" size="0.01" />
       <joint name="move15_16" type="free"/>
 			<body name="rod15_16_child1">
 				<geom name="r1516_child1" pos="-0.075 0.225 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
@@ -149,62 +149,62 @@
 		</body>
 
         <body name="rod17_18" pos="0 0 0">
-      <geom name="r1718"  fromto="0.225 0.075 0.35 -0.225 0.075 0.35"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r1718"  fromto="0.225 0.075 0.37 -0.225 0.075 0.37"  density="1000" type="cylinder" size="0.01" />
       <joint name="move17_18" type="free"/>
 			<body name="rod17_18_child1">
-				<geom name="r1718_child1" pos="0.225 0.075 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s17" pos="0.225 0.075 0.35"/>
-				<joint type="ball" pos="0.225 0.075 0.35"/>
+				<geom name="r1718_child1" pos="0.225 0.075 0.37" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s17" pos="0.225 0.075 0.37"/>
+				<joint type="ball" pos="0.225 0.075 0.37"/>
 			</body>
 			<body name="rod17_18_child2">
-				<geom name="r1718_child2" pos="-0.225 0.075 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s18" pos="-0.225 0.075 0.35" />
-				<joint type="ball" pos="-0.225 0.075 0.35"/>
+				<geom name="r1718_child2" pos="-0.225 0.075 0.37" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s18" pos="-0.225 0.075 0.37" />
+				<joint type="ball" pos="-0.225 0.075 0.37"/>
 			</body>
 		</body>
     
         <body name="rod19_20" pos="0 0 0">
-      <geom name="r1920"  fromto="0.225 -0.075 0.35 -0.225 -0.075 0.35"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r1920"  fromto="0.225 -0.075 0.37 -0.225 -0.075 0.37"  density="1000" type="cylinder" size="0.01" />
       <joint name="move19_20" type="free"/>
 			<body name="rod18_20_child1">
-				<geom name="r1920_child1" pos="0.225 -0.075 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s19" pos="0.225 -0.075 0.35"/>
-				<joint type="ball" pos="0.225 -0.075 0.35"/>
+				<geom name="r1920_child1" pos="0.225 -0.075 0.37" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s19" pos="0.225 -0.075 0.37"/>
+				<joint type="ball" pos="0.225 -0.075 0.37"/>
 			</body>
 			<body name="rod19_20_child2">
-				<geom name="r1920_child2" pos="-0.225 -0.075 0.35" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s20" pos="-0.225 -0.075 0.35" />
-				<joint type="ball" pos="-0.225 -0.075 0.35"/>
+				<geom name="r1920_child2" pos="-0.225 -0.075 0.37" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s20" pos="-0.225 -0.075 0.37" />
+				<joint type="ball" pos="-0.225 -0.075 0.37"/>
 			</body>
 		</body>
 
         <body name="rod21_22" pos="0 0 0">
-      <geom name="r2122"  fromto="0.225 -0.075 0.20 -0.225 -0.075 0.20"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r2122"  fromto="0.225 -0.075 0.22 -0.225 -0.075 0.22"  density="1000" type="cylinder" size="0.01" />
       <joint name="move21_22" type="free"/>
 			<body name="rod21_22_child1">
-				<geom name="r2122_child1" pos="0.225 -0.075 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s21" pos="0.225 -0.075 0.20"/>
-				<joint type="ball" pos="0.225 -0.075 0.20"/>
+				<geom name="r2122_child1" pos="0.225 -0.075 0.22" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s21" pos="0.225 -0.075 0.22"/>
+				<joint type="ball" pos="0.225 -0.075 0.22"/>
 			</body>
 			<body name="rod21_22_child2">
-				<geom name="r2122_child2" pos="-0.225 -0.075 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s22" pos="-0.225 -0.075 0.20" />
-				<joint type="ball" pos="-0.225 -0.075 0.20"/>
+				<geom name="r2122_child2" pos="-0.225 -0.075 0.22" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s22" pos="-0.225 -0.075 0.22" />
+				<joint type="ball" pos="-0.225 -0.075 0.22"/>
 			</body>
 		</body>
     
         <body name="rod23_24" pos="0 0 0">
-      <geom name="r2324"  fromto="0.225 0.075 0.20 -0.225 0.075 0.20"  density="1000" type="cylinder" size="0.014" />
+      <geom name="r2324"  fromto="0.225 0.075 0.22 -0.225 0.075 0.22"  density="1000" type="cylinder" size="0.01" />
       <joint name="move23_24" type="free"/>
 			<body name="rod23_24_child1">
-				<geom name="r2324_child1" pos="0.225 0.075 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s23" pos="0.225 0.075 0.20"/>
-				<joint type="ball" pos="0.225 0.075 0.20"/>
+				<geom name="r2324_child1" pos="0.225 0.075 0.22" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s23" pos="0.225 0.075 0.22"/>
+				<joint type="ball" pos="0.225 0.075 0.22"/>
 			</body>
 			<body name="rod23_24_child2">
-				<geom name="r2324_child2" pos="-0.225 0.075 0.20" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
-				<site name="s24" pos="-0.225 0.075 0.20" />
-				<joint type="ball" pos="-0.225 0.075 0.20"/>
+				<geom name="r2324_child2" pos="-0.225 0.075 0.22" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
+				<site name="s24" pos="-0.225 0.075 0.22" />
+				<joint type="ball" pos="-0.225 0.075 0.22"/>
 			</body>
 		</body>
     </worldbody>
