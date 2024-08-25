@@ -10,7 +10,7 @@
     <geom conaffinity="1" condim="4" contype="1" material="geom" margin="0.001" rgba="0. 0.5 0.99 1"/>
 		<site type="sphere" size="0.01"/>
     <tendon limited="true" range="0.1 0.15" width="0.005" rgba="0.99 0. 0. 1"  stiffness="1" damping="0.5"/>
-		<general gear="10000" biastype="affine" biasprm="0 0 0" dyntype="filter" dynprm="5 0 0" gainprm="1 0 0" ctrllimited="true" ctrlrange="-2. 0." />
+		<general gear="10000" biastype="affine" biasprm="0 0 0" dyntype="filter" dynprm="5 0 0" gainprm="1 0 0" ctrllimited="true" ctrlrange="-1.5 0." />
 	</default>
 
 	<asset>
