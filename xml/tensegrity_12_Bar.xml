@@ -10,7 +10,7 @@
     <geom conaffinity="1" condim="4" contype="1" material="geom" margin="0.001" rgba="0. 0.5 0.99 1"/>
 		<site type="sphere" size="0.01"/>
     <tendon limited="true" range="0.1 0.15" width="0.005" rgba="0.99 0. 0. 1"  stiffness="1" damping="0.5"/>
-		<general gear="10000" biastype="affine" biasprm="0 0 0" dyntype="filter" dynprm="5 0 0" gainprm="1 0 0" ctrllimited="true" ctrlrange="-1.5 0." />
+		<general gear="50000" biastype="affine" biasprm="0 0 0" dyntype="filter" dynprm="5 0 0" gainprm="1 0 0" ctrllimited="true" ctrlrange="-1.5 0." />
 	</default>
 
 	<asset>
@@ -34,7 +34,7 @@
 			<body name="rod1_2_child1">
 				<geom name="r12_child1" pos="0.095 0.095 0.50" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
 				<site name="s1" pos="0.095 0.095 0.50"/>
-				<joint type="ball" pos="0.095 0.075 0.50"/>
+				<joint type="ball" pos="0.095 0.095 0.50"/>
 			</body>
 			<body name="rod1_2_child2">
 				<geom name="r12_child2" pos="0.095 0.095 0.05" density="5000" mass="5" type="sphere"  size="0.03" friction="10 0.005 0.0001"/>
@@ -209,9 +209,10 @@
 		</body>
     </worldbody>
 
+    0 3 4
     <!-- TENDONS-->
     <tendon>
-        <spatial name="td_0">
+        <spatial name="td_0" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s1"/>
             <site site="s3"/>
         </spatial>
@@ -231,7 +232,7 @@
             <site site="s17"/>
         </spatial>
 
-         <spatial name="td_4">
+         <spatial name="td_4" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s2"/>
             <site site="s4"/>
         </spatial>
@@ -246,7 +247,7 @@
             <site site="s11"/>
         </spatial>
 
-        <spatial name="td_7">
+        <spatial name="td_7" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s2"/>
             <site site="s23"/>
         </spatial>
@@ -261,7 +262,7 @@
             <site site="s15"/>
         </spatial>
 
-        <spatial name="td_10">
+        <spatial name="td_10" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s3"/>
             <site site="s18"/>
         </spatial>
@@ -276,12 +277,12 @@
             <site site="s13"/>
         </spatial>
 
-        <spatial name="td_13">
+        <spatial name="td_13" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s4"/>
             <site site="s24"/>
         </spatial>
 
-        <spatial name="td_14">
+        <spatial name="td_14" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s5"/>
             <site site="s7"/>
         </spatial>
@@ -291,12 +292,12 @@
             <site site="s16"/>
         </spatial>
 
-        <spatial name="td_16">
+        <spatial name="td_16" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s5"/>
             <site site="s20"/>
         </spatial>
 
-        <spatial name="td_17">
+        <spatial name="td_17" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s6"/>
             <site site="s8"/>
         </spatial>
@@ -306,7 +307,7 @@
             <site site="s14"/>
         </spatial>
 
-        <spatial name="td_19">
+        <spatial name="td_19" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s6"/>
             <site site="s22"/>
         </spatial>
@@ -326,7 +327,7 @@
             <site site="s12"/>
         </spatial>
 
-        <spatial name="td_23">
+        <spatial name="td_23" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s8"/>
             <site site="s21"/>
         </spatial>
@@ -416,7 +417,7 @@
             <site site="s19"/>
         </spatial>
 
-        <spatial name="td_41">
+        <spatial name="td_41" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s17"/>
             <site site="s23"/>
         </spatial>
@@ -426,17 +427,17 @@
             <site site="s20"/>
         </spatial>
 
-        <spatial name="td_43">
+        <spatial name="td_43" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s18"/>
             <site site="s24"/>
         </spatial>
 
-        <spatial name="td_44">
+        <spatial name="td_44" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s19"/>
             <site site="s21"/>
         </spatial>
 
-        <spatial name="td_45">
+        <spatial name="td_45" rgba="0 .5 .3 1" range="0.1 0.6">
             <site site="s20"/>
             <site site="s22"/>
         </spatial>
@@ -457,31 +458,31 @@
 
     <actuator>
             <general name="motor_td_0" tendon="td_0" />
-            <general name="motor_td_1" tendon="td_1" />
-            <general name="motor_td_2" tendon="td_2" />
+            <!-- <general name="motor_td_1" tendon="td_1" /> -->
+            <!-- <general name="motor_td_2" tendon="td_2" /> -->
             <general name="motor_td_3" tendon="td_3" />
             <general name="motor_td_4" tendon="td_4" />
-            <general name="motor_td_5" tendon="td_5" />
-            <general name="motor_td_6" tendon="td_6" />
+            <!-- <general name="motor_td_5" tendon="td_5" /> -->
+            <!-- <general name="motor_td_6" tendon="td_6" /> -->
             <general name="motor_td_7" tendon="td_7" />
-            <general name="motor_td_8" tendon="td_8" />
-            <general name="motor_td_9" tendon="td_9" />
+            <!-- <general name="motor_td_8" tendon="td_8" /> -->
+            <!-- <general name="motor_td_9" tendon="td_9" /> -->
             <general name="motor_td_10" tendon="td_10" />
-            <general name="motor_td_11" tendon="td_11" />
-            <general name="motor_td_12" tendon="td_12" />
+            <!-- <general name="motor_td_11" tendon="td_11" /> -->
+            <!-- <general name="motor_td_12" tendon="td_12" /> -->
             <general name="motor_td_13" tendon="td_13" />
             <general name="motor_td_14" tendon="td_14" />
-            <general name="motor_td_15" tendon="td_15" />
+            <!-- <general name="motor_td_15" tendon="td_15" /> -->
             <general name="motor_td_16" tendon="td_16" />
             <general name="motor_td_17" tendon="td_17" />
-            <general name="motor_td_18" tendon="td_18" />
+            <!-- <general name="motor_td_18" tendon="td_18" /> -->
             <general name="motor_td_19" tendon="td_19" />
-            <general name="motor_td_20" tendon="td_20" />
+            <!-- <general name="motor_td_20" tendon="td_20" /> -->
             <general name="motor_td_21" tendon="td_21" />
-            <general name="motor_td_22" tendon="td_22" />
+            <!-- <general name="motor_td_22" tendon="td_22" /> -->
             <general name="motor_td_23" tendon="td_23" />
-            <!--
-            <general name="motor_td_24" tendon="td_24" />
+            
+            <!-- <general name="motor_td_24" tendon="td_24" />
             <general name="motor_td_25" tendon="td_25" />
             <general name="motor_td_26" tendon="td_26" />
             <general name="motor_td_27" tendon="td_27" />
@@ -497,14 +498,14 @@
             <general name="motor_td_37" tendon="td_37" />
             <general name="motor_td_38" tendon="td_38" />
             <general name="motor_td_39" tendon="td_39" />
-            <general name="motor_td_40" tendon="td_40" />
+            <general name="motor_td_40" tendon="td_40" /> -->
             <general name="motor_td_41" tendon="td_41" />
-            <general name="motor_td_42" tendon="td_42" />
+            <!-- <general name="motor_td_42" tendon="td_42" /> -->
             <general name="motor_td_43" tendon="td_43" />
             <general name="motor_td_44" tendon="td_44" />
             <general name="motor_td_45" tendon="td_45" />
-            <general name="motor_td_46" tendon="td_46" />
-            <general name="motor_td_47" tendon="td_47" />
-            -->
+            <!-- <general name="motor_td_46" tendon="td_46" /> -->
+            <!-- <general name="motor_td_47" tendon="td_47" /> -->
+            
     </actuator>
 </mujoco>

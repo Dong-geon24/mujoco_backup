@@ -15,7 +15,7 @@ def mass_center(model, data):
     xpos = data.xipos
     return (np.sum(mass * xpos, axis=0) / np.sum(mass))[0:2].copy()    
 
-class TensegrityEnv(MujocoEnv, utils.EzPickle):
+class Tensegrity12Env(MujocoEnv, utils.EzPickle):
     metadata = {
         "render_modes": [
             "human",
@@ -31,7 +31,7 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
             reset_noise_scale=1e-2,
             **kwargs,
     ):
-        utils.Ezpickle.__init__(
+        utils.EzPickle.__init__(
             self,
             exclude_current_positions_from_observation,
             reset_noise_scale,
@@ -45,7 +45,7 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
         )
         if exclude_current_positions_from_observation:
             observation_space = Box(
-                low=np.inf, high=np.inf, shape=(650,),dtype=np.float64
+                low=-np.inf, high=np.inf, shape=(1280,),dtype=np.float64
         )
 
         MujocoEnv.__init__(
@@ -107,10 +107,18 @@ class TensegrityEnv(MujocoEnv, utils.EzPickle):
         lane_diviation = xypos_af[1]
         re_lane = -abs(lane_diviation) * 0.5
 
-        #comute re  
-        reward = re_forward + re_heading + re_lane
+        # Y축 회전각(pitch)에 따른 보상 추가
+        pitch_angle = self.data.qpos[1]  # y축 회전각(pitch)
+        if pitch_angle > 0:  # 양의 방향으로 회전할 때만 보상
+            re_rotation = pitch_angle*10
+        else:
+            re_rotation = pitch_angle*(-10)  # 음수 방향일 때는 보상 없음
 
-        terminated  = bool(xypos_af - xypos_bf == 0 )
+        #comute re  
+        reward = re_forward + re_heading + re_lane + re_rotation
+
+        terminated = bool(np.allclose(xypos_af, xypos_bf,0.01))
+
         observation = self._get_obs()
         info = {
             "re_forward": re_forward,
