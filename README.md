@@ -1,5 +1,6 @@
 # mujoco_backup
-
+> Notion
+https://gentle-sturgeon-3d0.notion.site/Tensegrity-robots-b1d9336f26be4092b9fa80b91efeedd7
 
 #### train: learning에서 해당하는 학습을 가져와 진행
     #위치: /home/arclab/.mujoco273/mujoco-2.3.7/gym_solutions/
